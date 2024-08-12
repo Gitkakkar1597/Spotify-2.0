@@ -13,7 +13,6 @@ See Live Demo - https://brilliant-empanada-ba6d3f.netlify.app/
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
