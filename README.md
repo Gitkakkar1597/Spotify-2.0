@@ -1,73 +1,132 @@
-# Youtube-2.0
+# YouTube Clone
 
+A modern YouTube clone application built with React and MUI (Material-UI). This app mimics core YouTube features, including video searching, detailed video views, and channel browsing.
 
-# Getting Started with Create React App
+See Live Demo - https://brilliant-empanada-ba6d3f.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Features](#features)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [File Structure](#file-structure)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Home Feed**: Browse a feed of videos.
+- **Search**: Search for videos by keywords.
+- **Video Detail**: View detailed information about a specific video.
+- **Channel Detail**: View details about a channel.
+- **Responsive Design**: Fully responsive layout for desktop and mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: JavaScript library for building user interfaces.
+- **Material-UI**: React component library for faster and easier web development.
+- **React Router**: Declarative routing for React.js applications.
+- **Axios**: Promise-based HTTP client for the browser and Node.js.
+- **YouTube Data API**: API used to fetch video and channel data.
+- **Environment Variables**: Managed with `.env` for secure API key storage.
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js and npm installed on your local machine.
+- An API key from RapidAPI for accessing the YouTube Data API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the Repository**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    git clone https://github.com/Gitkakkar1597/YouTube-Clone
+    cd youtube-clone
+    ```
 
-### `npm run eject`
+2. **Install Dependencies**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    npm install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Setup Environment Variables**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Create a `.env` file in the root directory of the project and add your RapidAPI key:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```env
+    REACT_APP_RAPID_API_KEY=your_actual_api_key_here
+    ```
 
-## Learn More
+4. **Start the Development Server**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    npm start
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    The app will be available at `http://localhost:3000`.
 
-### Code Splitting
+## File Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```plaintext
+src/
+│
+├── components/
+│   ├── ChannelCard.jsx
+│   ├── ChannelDetail.jsx
+│   ├── Feed.jsx
+│   ├── Loader.jsx
+│   ├── Navbar.jsx
+│   ├── SearchBar.jsx
+│   ├── SearchFeed.jsx
+│   ├── Sidebar.jsx
+│   ├── VideoCard.jsx
+│   └── VideoDetail.jsx
+│   └── Videos.jsx
+│
+├── utils/
+│   ├── constants.js
+│   └── fetchFromAPI.js
+│
+├── App.js
+├── index.js
+└── index.css
+```
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Home Feed**: The landing page displays a list of videos fetched from the API.
 
-### Making a Progressive Web App
+2. **Search**: Use the search bar to find videos. Results are displayed on the search feed page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. **Video Detail**: Click on a video to view detailed information, including views and likes.
 
-### Advanced Configuration
+4. **Channel Detail**: Click on a channel to view information about the channel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API
 
-### Deployment
+The application fetches data from the [YouTube Data API](https://rapidapi.com/youtube/api/youtube-v31) via RapidAPI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Endpoints
 
-### `npm run build` fails to minify
+- **Search**: `GET /search?part=snippet&q={searchTerm}`
+- **Video Details**: `GET /videos?part=snippet,statistics&id={videoId}`
+- **Related Videos**: `GET /search?part=snippet&relatedToVideoId={videoId}&type=video`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Configuration
+
+The API key is configured in the `.env` file as `REACT_APP_RAPID_API_KEY`.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a Pull Request.
